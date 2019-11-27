@@ -15,9 +15,6 @@ import javafx.scene.input.TransferMode;
  * @author quent
  */
 public class Symbole  {
-
-    
-    
     
     private int height ;
     
@@ -53,11 +50,11 @@ public class Symbole  {
         
         System.out.print(getClass().getResource(this.path));
         System.out.print(this.path);
-         Image img = new Image((this.getClass().getResource(this.path).toExternalForm()));
-         ImageView imgv  = new ImageView(img);
+        Image img = new Image((this.getClass().getResource(this.path).toExternalForm()));
+        ImageView imgv  = new ImageView(img);
          
-         imgv.setFitWidth(this.width);
-            imgv.setFitHeight(this.height);
+        imgv.setFitWidth(this.width);
+        imgv.setFitHeight(this.height);
             
             
             

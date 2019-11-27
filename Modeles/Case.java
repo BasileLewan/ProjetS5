@@ -1,20 +1,28 @@
 
 package Modeles;
 
-import javafx.scene.canvas.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
-public class Case extends Canvas {
-    private int posX, posY;
+public class Case{
+
+    private ImageView imgv;
     
-    public Case(int m_posX, int m_posY){
-        super(50.0, 50.0);
-        posX = m_posX;
-        posY = m_posY;
+    Image img = new Image((getClass().getResource("caseVide.png").toExternalForm()));
+    
+    public Case(ImageView m_imgv){
+        this.imgv = m_imgv;
     }
     
-    @Override
-    public String toString(){
-        return " "  + posX + " - " + posY;
+
     }
+
+    public ImageView getImgv() {
+        return imgv;
+        
+    }
+    
+    
+
 }
