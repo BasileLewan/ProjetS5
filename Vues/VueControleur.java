@@ -45,6 +45,8 @@ public class VueControleur extends Application {
 
         //Text[][] tabText = new Text[5][5];
         ImageView[][] grille = new ImageView[5][5];
+        
+        Grille grid = new Grille();
 
         Text affichage = new Text("Grille Drag&Drop");
         affichage.setFont(Font.font("Verdana", 30));
@@ -77,6 +79,11 @@ public class VueControleur extends Application {
                 Image img = new Image((getClass().getResource("caseVide.png").toExternalForm()));
                 ImageView t  = new ImageView(img);
                 
+                Case c = new Case(t);
+                
+                grid.addCase(column, row, c);
+                
+
                 grille[column][row] = t ;
                 
                 t.setOnDragDetected(new EventHandler<MouseEvent>() {
