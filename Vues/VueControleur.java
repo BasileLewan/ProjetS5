@@ -8,6 +8,8 @@ import javafx.application.Application;
 
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -42,7 +44,7 @@ public class VueControleur extends Application {
         GridPane gPane = new GridPane();
 
         //Text[][] tabText = new Text[5][5];
-        Case[][] grille = new Case[5][5];
+        ImageView[][] grille = new ImageView[5][5];
 
         Text affichage = new Text("Grille Drag&Drop");
         affichage.setFont(Font.font("Verdana", 30));
@@ -67,10 +69,15 @@ public class VueControleur extends Application {
                 // final Text t = new Text(" " + column + "-" + row + " ");
                 
                 // tabText[column][row] = t;
-                grille[column][row] = new Case(column, row);
-                final Text t = new Text(grille[column][row].toString());
-                t.setFont(Font.font("Verdana", 25));
                 
+                
+                // final Text t = new Text(grille[column][row].toString());
+                // t.setFont(Font.font("Verdana", 25));
+                
+                Image img = new Image((getClass().getResource("caseVide.png").toExternalForm()));
+                ImageView t  = new ImageView(img);
+                
+                grille[column][row] = t ;
                 
                 t.setOnDragDetected(new EventHandler<MouseEvent>() {
                     public void handle(MouseEvent event) {
