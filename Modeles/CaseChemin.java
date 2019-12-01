@@ -13,7 +13,6 @@ public class CaseChemin extends Case {
     int entree, sortie; // 0 = haut, 1 = droite etc
     
     public CaseChemin(int x, int y, int in, int out){
-        super(x, y);
         entree = in;
         sortie = out;
     }
