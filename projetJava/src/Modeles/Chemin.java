@@ -5,8 +5,9 @@
  */
 package Modeles;
 
+import java.util.LinkedList;
 import java.util.Observable;
-import java.util.PriorityQueue;
+
 import java.util.Queue;
 
 /**
@@ -32,7 +33,7 @@ public class Chemin extends Observable {
    {
        
        grille = new Case[5][5];
-       lastChemin = new PriorityQueue<Case>();
+       lastChemin = new LinkedList<Case>();
        
    }
     
@@ -87,8 +88,9 @@ public class Chemin extends Observable {
         
         if(lastChemin.size() > 3)
         {
-            System.out.println(lastChemin);
+            
             lastChemin.remove() ;
+            System.out.println(lastChemin);
         }
         System.out.println("parcoursDD : c " + c + "- r " + r);
          setChanged();

@@ -90,7 +90,7 @@ public class Grille {
            Q.toArray(arrayQ);
            if(Q.size() > 2)
            {
-           System.out.println(arrayQ[2].getX() + " ;" + arrayQ[2].getY() +"  change");
+           
            }
            
            
@@ -105,9 +105,20 @@ public class Grille {
             } 
             else if( Q.size() == 3)
             {
-                if((arrayQ[2].getY() == arrayQ[0].getY() + 1 && arrayQ[2].getX() == arrayQ[0].getX() + 1 ) || (arrayQ[2].getY() == arrayQ[0].getY() -1  && arrayQ[2].getX() == arrayQ[0].getX() -1 )   )
+                
+                if(arrayQ[2].getY() == arrayQ[0].getY() + 2 ||arrayQ[2].getY() == arrayQ[0].getY() -2 )
                 {
-                   if( (arrayQ[0].getX() < arrayQ[1].getX()) ||(arrayQ[0].getY() < arrayQ[1].getY()) )
+                    this.getSymbole2Cases(arrayQ[2], arrayQ[1]);
+                }
+                else if (arrayQ[2].getX() == arrayQ[0].getX() + 2 ||arrayQ[2].getX() == arrayQ[0].getX() -2 )
+                {
+                    this.getSymbole2Cases(arrayQ[2], arrayQ[1]);
+                    
+                }
+                else if((arrayQ[2].getY() == arrayQ[0].getY() + 1 && arrayQ[2].getX() == arrayQ[0].getX() + 1 ) || (arrayQ[2].getY() == arrayQ[0].getY() -1  && arrayQ[2].getX() == arrayQ[0].getX() -1 )   )
+                {
+                    System.out.println("basGauche ou hauDroit");
+                   if( (arrayQ[0].getY() > arrayQ[1].getY()) ||(arrayQ[0].getX() < arrayQ[1].getX()) )
                    {
                        this.getSymbole2Cases(arrayQ[2], arrayQ[1]);
                        this.laGrille[arrayQ[1].getX()][arrayQ[1].getY()].upateImage("hautDroit.png");
@@ -122,18 +133,19 @@ public class Grille {
                     
                 }
                 else{
+                    System.out.println("hautGauche ou basDroit");
                     
-                    if( (arrayQ[0].getX() < arrayQ[1].getX()) ||(arrayQ[0].getY() > arrayQ[1].getY()) )
+                    if( (arrayQ[0].getY() > arrayQ[1].getY()) ||(arrayQ[0].getX() > arrayQ[1].getX()) )
                    {
                        this.getSymbole2Cases(arrayQ[2], arrayQ[1]);
-                      this.laGrille[arrayQ[1].getX()][arrayQ[1].getY()].upateImage("hautGauche.png");
+                      this.laGrille[arrayQ[1].getX()][arrayQ[1].getY()].upateImage("basDroit.png");
                        
                    }
                    else
                    {
                        this.getSymbole2Cases(arrayQ[2], arrayQ[1]);
                       
-                       this.laGrille[arrayQ[1].getX()][arrayQ[1].getY()].upateImage("basDroit.png");
+                       this.laGrille[arrayQ[1].getX()][arrayQ[1].getY()].upateImage("hautGauche.png");
                    }
                     
                     
