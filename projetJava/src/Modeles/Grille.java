@@ -1,15 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Modeles;
 
+import java.util.Observable;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Grille {
+/**
+ *
+ * @author Basile
+ */
+public class Grille extends Observable  {
     
     private Case[][] laGrille;
-
-    private boolean[] chContinu = {false, false, false};
 
     
 
@@ -27,6 +35,54 @@ public class Grille {
 
     }
     
+    public void createPuzzle()
+    {
+        
+        
+                CaseSymbole s1 = new CaseSymbole(this.laGrille[3][4].getImgv(),3,4);
+        
+        this.laGrille[3][4] = s1 ; 
+        
+     
+                
+        
+        
+         
+         CaseSymbole s2 = new CaseSymbole(this.laGrille[0][0].getImgv(),0,0);
+        
+        this.laGrille[0][0] = s2 ; 
+        
+         s2.upateImageSymbole("fleur.jpg");
+        
+       s1.upateImageSymbole("fleur.jpg");
+        
+        
+        
+    }
+    
+    
+    public void clean()
+    {
+        for (int i = 0 ; i<5 ; i++)
+        {
+            
+            for (int j = 0 ; j<5 ; j++)
+            {
+                if ( !(laGrille[i][j] instanceof CaseSymbole))
+                {
+                Case c =new Case(laGrille[i][j].getImgv() ,i,j ) ;
+                
+                    this.laGrille[i][j]= c ;
+                    
+                    c.upateImage("caseVide.png");
+                    
+                }
+                    
+                
+            }
+        }
+    }
+    
     public void buildChemin(Chemin leChemin)
     {
         
@@ -37,6 +93,8 @@ public class Grille {
               
             
         }
+    
+   
         
        public void getSymbole2Cases( Case case1 , Case case2)
        {
@@ -147,20 +205,15 @@ public class Grille {
                 
                 
             }
-              
+           
+          
+         
             
+            
+            setChanged();
+         notifyObservers();
             
           
         }
-         public boolean isOver(){
-         for (var l : laGrille){
-             for(var cel : l){
-                 if (!((cel instanceof CaseChemin) || (cel instanceof Symbole))){
-                     return false;
-                 }
-             }
-         }
-         return (chContinu[1] && chContinu[2] && !chContinu[0]);
-     }
     
 }

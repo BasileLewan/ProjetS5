@@ -8,9 +8,11 @@ import javafx.scene.image.ImageView;
 
 public class Case extends Observable implements Comparable{
 
-    private ImageView imgv;
+    ImageView imgv;
     
     private int x,y ;
+    
+    private String ressource ;
     
     
     
@@ -19,6 +21,8 @@ public class Case extends Observable implements Comparable{
         this.imgv = m_imgv;
         this.x = x ;
         this.y = y ;
+        
+       
     }
     
 
@@ -31,10 +35,20 @@ public class Case extends Observable implements Comparable{
     
     public void upateImage(String ressource)
     {
+        if(! ( this instanceof CaseSymbole) )
+        {
         
         this.imgv.setImage(new Image (this.getClass().getResource(ressource).toExternalForm()));
+            this.ressource  =ressource ;
+        
+        setChanged();
+        notifyObservers();
+        }
+        
+        
     }
 
+    
     public int getX() {
         return x;
     }
@@ -46,6 +60,10 @@ public class Case extends Observable implements Comparable{
     @Override
     public int compareTo(Object o) {
         return 0 ;
+    }
+
+    public String getRessource() {
+        return ressource;
     }
     
     
