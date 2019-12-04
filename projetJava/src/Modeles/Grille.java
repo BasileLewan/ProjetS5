@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modeles;
 
 import java.util.Observable;
@@ -11,13 +7,11 @@ import java.util.Queue;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-/**
- *
- * @author Basile
- */
+
 public class Grille extends Observable  {
     
     private Case[][] laGrille;
+    
 
     
 
@@ -39,23 +33,30 @@ public class Grille extends Observable  {
     {
         
         
-                CaseSymbole s1 = new CaseSymbole(this.laGrille[3][4].getImgv(),3,4);
+                CaseSymbole s1 = new CaseSymbole(this.laGrille[3][4].getImgv(),3,4,1);
+                CaseSymbole s1_2 = new CaseSymbole(this.laGrille[4][0].getImgv(),4,4,2);
         
-        this.laGrille[3][4] = s1 ; 
+        this.laGrille[3][4] = s1 ;
+        this.laGrille[4][0] = s1_2 ;
         
      
                 
         
         
          
-         CaseSymbole s2 = new CaseSymbole(this.laGrille[0][0].getImgv(),0,0);
+         CaseSymbole s2 = new CaseSymbole(this.laGrille[0][0].getImgv(),0,0,1);
+         CaseSymbole s2_2 = new CaseSymbole(this.laGrille[4][4].getImgv(),4,4,2);
         
-        this.laGrille[0][0] = s2 ; 
+        this.laGrille[0][0] = s2 ;
+        this.laGrille[4][4] = s2_2 ;
         
-         s2.upateImageSymbole("fleur.jpg");
+       s2.upateImageSymbole("fleur.jpg");
         
        s1.upateImageSymbole("fleur.jpg");
+       
+       s2_2.upateImageSymbole("fleur2.jpg");
         
+       s1_2.upateImageSymbole("fleur2.jpg");
         
         
     }
@@ -205,15 +206,11 @@ public class Grille extends Observable  {
                 
                 
             }
-           
-          
-         
-            
             
             setChanged();
          notifyObservers();
             
           
         }
-    
+     
 }
