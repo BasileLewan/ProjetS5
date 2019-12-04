@@ -154,13 +154,20 @@ public class Grille {
                 
                 
             }
-           
-          
-         
-            
+              
             
             
           
         }
+         public boolean isOver(){
+         for (var l : laGrille){
+             for(var cel : l){
+                 if (!((cel instanceof CaseChemin) || (cel instanceof Symbole))){
+                     return false;
+                 }
+             }
+         }
+         return (chContinu[1] && chContinu[2] && !chContinu[0]);
+     }
     
 }
