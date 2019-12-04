@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modeles;
 
 import java.util.PriorityQueue;
@@ -10,13 +5,11 @@ import java.util.Queue;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-/**
- *
- * @author Basile
- */
 public class Grille {
     
     private Case[][] laGrille;
+
+    private boolean[] chContinu = {false, false, false};
 
     
 
